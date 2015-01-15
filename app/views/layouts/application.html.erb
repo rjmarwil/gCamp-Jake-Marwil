@@ -18,11 +18,40 @@
           </button>
           <a class="navbar-brand" href="#">gCamp</a>
         </div>
-        
+
       </div>
     </nav>
 
 <%= yield %>
+
+<footer>
+  <div class="row">
+    <div class= "col-md-6">
+      <a href="/about">About</a>
+      |
+      <a href="/terms">Terms</a>
+      |
+      <a href="/faq">FAQ</a>
+      |
+      <a href="/tasks">Tasks</a>
+    </div>
+
+    <div class="col-md-6 text-right">
+      <a href="https://www.linkedin.com">
+        <%= image_tag('linked_in.jpg', class: 'img-footer') %>
+      </a>
+      <a href="https://github.com/">
+        <%= image_tag('cat.png', class: 'img-footer') %>
+      </a>
+      <a href="https://twitter.com/">
+        <%= image_tag('twitter.png', class: 'img-footer') %>
+      </a>
+      <a href="https://students.gschool.it/">
+        <%= image_tag('galvanize.png', class: 'img-footer') %>
+      </a>        </div>
+    </div>
+  </footer>
+</div> <!-- /container -->
 
 </body>
 </html>

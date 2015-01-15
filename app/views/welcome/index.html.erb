@@ -1,7 +1,7 @@
 <html>
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="container">
+<br/>
+<div class="container">
+  <div class="jumbotron">
     <h1>gCamp</h1>
     <p>Your life, organized.</p>
   </div>
@@ -11,36 +11,82 @@
   <!-- Example row of columns -->
   <div class="row">
     <div class="col-md-4">
-      <%= image_tag('/robertmarwil/gSchoolProjects/gCamp-Jake-Marwil/app/assets/images/8203794182_8004f8f636_b.jpg') %>
-      <h2>Tasks</h2>
-      <p>Grouped by projects and lists, just the way you like'em</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <p class="lead">
+        <%= image_tag('8969237967_c5960fc544_b.jpg', class: 'img-responsive') %>
+      </p>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Tasks</div>
+        <div class="panel-body home-panel">
+          <p>Grouped by projects and lists, just the way you like'em</p>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
-      <%= image_tag('/app/assets/images/8864977481_713b7cbda5_b.jpg') %>
-      <h2>Documents</h2>
-      <ul>
-        <li>Upload</li>
-        <li>Comment</li>
-        <li>Revise</li>
-      </ul>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <p class="lead">
+        <%= image_tag('8864977481_713b7cbda5_b.jpg', class: 'img-responsive') %>
+      </p>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Documents</div>
+        <div class="panel-body home-panel">
+          <ul>
+            <li>Upload</li>
+            <li>Comment</li>
+            <li>Revise</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
-      <%= image_tag('/images/8969237967_c5960fc544_b.jpg') %>
-      <h2>Comments</h2>
-      <ul>
-        <li>Comment on tasks and documents</li>
-        <li>Get email notifications</li>
-      </ul>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <p class="lead">
+        <%= image_tag('8203794182_8004f8f636_b.jpg', class: 'img-responsive') %>
+      </p>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Comments</div>
+        <div class="panel-body home-panel">
+          <ul>
+            <li>Comment on tasks and documents</li>
+            <li>Get email notifications</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+
+  <p>&ldquo;gCamp has changed my life!  It&#39;s the best tool I&#39;ve ever used.&rdquo;</p>
+  <p class="text-muted"><em>&mdash; Cayla Hayes</em></p>
+  <p>&ldquo;Before gCamp I was a disorderly slob.  Now I&#39;m more organized than I&#39;ve ever been&rdquo;</p>
+  <p class="text-muted"><em>&mdash; Leta Jaskolski</em></p>
+  <p>&ldquo;Don&#39;t hesitate - sign up right now! You&#39;ll never be the same.&rdquo;</p>
+  <p class="text-muted"><em>&mdash; Lavern Upton</em></p>
 
   <hr>
 
   <footer>
-    <p>&copy; Company 2014</p>
+    <div class="row">
+      <div class= "col-md-6">
+        <a href="/about">About</a>
+        |
+        <a href="/terms">Terms</a>
+        |
+        <a href="/faq">FAQ</a>
+        |
+        <a href="/tasks">Tasks</a>
+      </div>
+
+      <div class="col-md-6 text-right">
+        <a href="https://www.linkedin.com">
+          <%= image_tag('linked_in.jpg', class: 'img-footer') %>
+        </a>
+        <a href="https://github.com/">
+          <%= image_tag('cat.png', class: 'img-footer') %>
+        </a>
+        <a href="https://twitter.com/">
+          <%= image_tag('twitter.png', class: 'img-footer') %>
+        </a>
+        <a href="https://students.gschool.it/">
+          <%= image_tag('galvanize.png', class: 'img-footer') %>
+        </a>        </div>
+      </div>
   </footer>
 </div> <!-- /container -->
 
@@ -53,12 +99,4 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
-
-
-<img src="http://www.gifbin.com/bin/042012/1334168255_kid_on_barney_and_friends_simulates_brushing_teeth.gif">
-<img src="http://www.reactiongifs.us/wp-content/uploads/2013/11/brent_rambo_approves.gif">
-
 </html>
-
-<%= image_tag('http://www.dairyqueen.com/PageFiles/331/dq-sides-hotdog.png?width=&height=810') %>
-<!-- <%= image_tag('URL') %> how to put image in HTML using HTML.erb -->

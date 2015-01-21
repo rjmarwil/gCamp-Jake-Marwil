@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <h1>Frequently Asked Questions</h1>
+
+    <hr>
+
+    <ul>
+      <% @faq.each do |display| %>
+      <% question = display[0] %>
+      <a href="#"><li><u><%= question %></u></li></a>
+      <% end %>
+    </ul>
+
+    <br/>
+
+    <% @faq.each do |display| %>
+    <% question = display[0] %>
+    <% answer = display[1] %>
+    <h3><%= question %></h3>
+    <p><%= answer %></p>
+    <a href="#"><u>top</u></a>
+    <% end %>
+
+  </div>
+<br/>

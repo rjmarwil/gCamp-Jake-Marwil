@@ -54,7 +54,7 @@
   <% @quotes.each do |quote| %>
     <% text = quote[0] %>
     <% author = quote[1] %>
-    <%= text %>
+    "<%= text %>"
     <p class="text-muted"><em>- <%= author %></em></p>
   <% end %>
 

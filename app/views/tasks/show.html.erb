@@ -1,9 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="page-header">
-      <h1>Tasks</h1>
-    </div>
+    <div class="col-md-12">
+<p id="notice"><%= notice %></p>
 
-    <p>Coming Soon!</p>
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
 
-  </div>
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
+
+</div>
+</div>

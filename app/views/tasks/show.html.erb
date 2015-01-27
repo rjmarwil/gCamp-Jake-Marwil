@@ -15,6 +15,23 @@
 </h1>
 </div>
 
+<div>
+  <h3>
+    Due Date: <%= @task.due_date %>
+  </h3>
+</div>
+
+<div>
+  <h3>Completed?:
+  <% if @task.complete == true %>
+    Yes
+  <% else %>
+    No
+  <% end %>
+  </h3>
+</div>
+<br/>
+
 <ol class="breadcrumb">
   <li><a href="/tasks">Tasks</a></li>
   <li class="active"><%= @task.description %></li>

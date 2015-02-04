@@ -1,0 +1,50 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<form accept-charset="UTF-8" action="/users" class="form-horizontal" id="new_user" method="post">
+  <div style="display:none">
+    <input name="utf8" type="hidden" value="✓">
+    <input name="authenticity_token" type="hidden" value="/ZXnBdI5HPZqOlRMuiaFlCYFC93JnKC2zadASSP4lNs=">
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :first_name, :class => "control-label col-md-2" %>
+    <div class="form-controls col-md-4">
+      <%= f.text_field :first_name, :class => 'form-control', :id => "first_name" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :last_name, :class => "control-label col-md-2" %>
+    <div class="form-controls col-md-4">
+      <%= f.text_field :last_name, :class => 'form-control', :id => "last_name" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :email, :class => "control-label col-md-2" %>
+    <div class="form-controls col-md-4">
+      <%= f.email_field :email, :class => 'form-control', :id => 'email' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-offset-2 col-md-4">
+      <%= f.submit :class => "btn btn-primary" %>
+      <a class='btn btn-default' href="/users">Cancel</a>
+    </div>
+  </div>
+
+</form>
+
+<% end %>

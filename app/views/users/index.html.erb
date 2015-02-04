@@ -25,11 +25,11 @@
       <tr>
         <td><%= user.first_name %> <%= user.last_name %></td>
         <td><%= mail_to user.email %></td>
-        <!-- <td>
+        <td>
           <div class='text-right'>
-            <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+          <%= link_to 'Edit', edit_user_path(user), class:'btn btn-info' %>
           </div>
-        </td> -->
+        </td>
       </tr>
     <% end %>
   </tbody>

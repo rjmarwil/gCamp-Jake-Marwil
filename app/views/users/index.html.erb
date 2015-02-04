@@ -23,11 +23,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %> <%= user.last_name %></td>
+        <td><%= link_to user.full_name, user %></td>
         <td><%= mail_to user.email %></td>
         <td>
           <div class='text-right'>
-          <%= link_to 'Edit', edit_user_path(user), class:'btn btn-info' %>
+            <%= link_to 'Edit', edit_user_path(user), class:'btn btn-info' %>
           </div>
         </td>
       </tr>

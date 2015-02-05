@@ -11,11 +11,14 @@
 </h1>
 </div>
 
-<div>
-  <h3>
-    Email: <%= @user.email %>
-  </h3>
-</div>
+<dl class="dl-horizontal">
+  <p><dt>First Name: </dt>
+  <dd><%= @user.first_name %></dd></p>
+  <p><dt>Last Name: </dt>
+  <dd><%= @user.last_name %></dd></p>
+  <p><dt>Email: </dt>
+  <dd><%= mail_to @user.email %></dd></p>
+</dl>
 
 <br/>
 

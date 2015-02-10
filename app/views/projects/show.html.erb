@@ -7,16 +7,10 @@
   <h1><%= @project.name %>
   <div class='pull-right'>
     <%= link_to 'Edit', edit_project_path(@project), class:'btn btn-info' %>
+    <%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
   </div>
 </h1>
 </div>
-
-<dl class="dl-horizontal">
-  <p><dt>Name: </dt>
-  <dd><%= @project.name %></dd></p>
-</dl>
-
-<br/>
 
 </div>
 </div>

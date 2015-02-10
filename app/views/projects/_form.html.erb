@@ -28,9 +28,6 @@
     <div class="col-md-offset-2 col-md-4">
       <%= f.submit :class => "btn btn-primary" %>
       <a class='btn btn-default' href="/projects">Cancel</a>
-      <% unless @project.new_record? %>
-        <%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
-      <% end %>
     </div>
   </div>
 

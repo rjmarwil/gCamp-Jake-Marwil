@@ -1,15 +1,6 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div class="alert alert-danger" id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render partial: "shared/errors", locals: {object: @user} %>
 
 <form accept-charset="UTF-8" action="/users" class="form-horizontal" id="new_user" method="post">
   <div style="display:none">

@@ -1,0 +1,20 @@
+<%= form_tag '/sign_up' do %>
+
+  <%= label_tag :first_name %>
+  <%= text_field_tag :first_name %>
+
+  <%= label_tag :last_name %>
+  <%= text_field_tag :last_name %>
+
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+
+  <%= label_tag :password, "Password Confirmation" %>
+  <%= password_field_tag :password %>
+
+  <%= submit_tag 'Sign Up' %>
+
+<% end %>

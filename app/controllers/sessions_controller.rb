@@ -9,16 +9,16 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to secrets_path
+      redirect_to root_path
     else
-      flash[:alert] = "DENIED you skanky bitch ass ho!"
+      flash[:alert] = "Invalid Email and/or Password"
       render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/login'
+    redirect_to '/'
   end
 
 end

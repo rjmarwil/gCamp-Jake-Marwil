@@ -1,20 +1,41 @@
-<%= form_tag '/sign_up' do %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well">
+        <h2>Sign Into gCamp!</h2><br/>
 
-  <%= label_tag :first_name %>
-  <%= text_field_tag :first_name %>
+        <%= form_tag '/signin', html:{class:"form-horizontal"} do %>
 
-  <%= label_tag :last_name %>
-  <%= text_field_tag :last_name %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
 
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
+          <div class="form-group row">
+            <div class="control-label col-md-2">
+              <%= label_tag :email %>
+            </div>
+            <div class="form-controls col-md-4">
+              <%= text_field_tag :email %>
+            </div>
+          </div>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+          <div class="form-group row">
+            <div class="control-label col-md-2">
+              <%= label_tag :password %>
+            </div>
+            <div class="form-controls col-md-4">
+              <%= password_field_tag :password %>
+            </div>
+          </div>
 
-  <%= label_tag :password, "Password Confirmation" %>
-  <%= password_field_tag :password %>
+          <div class="form-group row">
+            <div class="col-md-offset-2 col-md-4">
+              <%= submit_tag "Sign In", class:"btn btn-primary" %>
+            </div>
+          </div>
 
-  <%= submit_tag 'Sign Up' %>
+        <% end %>
 
-<% end %>
+      </div>
+    </div>
+  </div>

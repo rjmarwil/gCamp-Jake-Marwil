@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 well">
+    <div class="well col-md-5 col-md-offset-3" id="sign_up">
       <div class="page-header">
         <h1>Sign Up for gCamp!</h1>
       </div>
@@ -10,43 +10,43 @@
       <%= render partial: "shared/errors", locals: {object: @user} %>
 
       <div class="form-group row">
-        <%= f.label :first_name, :class => "control-label col-md-2" %>
-        <div class="form-controls col-md-4">
+        <%= f.label :first_name, :class => "control-label col-md-offset-1" %>
+        <div class="form-controls col-md-offset-1">
           <%= f.text_field :first_name, :class => 'form-control', :id => "first_name" %>
         </div>
       </div>
 
       <div class="form-group row">
-        <%= f.label :last_name, :class => "control-label col-md-2" %>
-        <div class="form-controls col-md-4">
+        <%= f.label :last_name, :class => "control-label col-md-offset-1" %>
+        <div class="form-controls col-md-offset-1">
           <%= f.text_field :last_name, :class => 'form-control', :id => "last_name" %>
         </div>
       </div>
 
       <div class="form-group row">
-        <%= f.label :email, :class => "control-label col-md-2" %>
-        <div class="form-controls col-md-4">
+        <%= f.label :email, :class => "control-label col-md-offset-1" %>
+        <div class="form-controls col-md-offset-1">
           <%= f.email_field :email, :class => 'form-control', :id => 'email' %>
         </div>
       </div>
 
       <div class="form-group row">
-        <%= f.label :password, :class => "control-label col-md-2" %>
-        <div class="form-controls col-md-4">
+        <%= f.label :password, :class => "control-label col-md-offset-1" %>
+        <div class="form-controls col-md-offset-1">
           <%= f.password_field :password, :class => 'form-control', :id => 'password' %>
         </div>
       </div>
 
       <div class="form-group row">
-        <%= f.label :password_confirmation, :class => "control-label col-md-2" %>
-        <div class="form-controls col-md-4">
+        <%= f.label :password_confirmation, :class => "control-label col-md-offset-1" %>
+        <div class="form-controls col-md-offset-1">
           <%= f.password_field :password_confirmation, :class => 'form-control', :id => 'password confirmation' %>
         </div>
       </div>
 
       <div class="form-group row">
-        <div class="col-md-offset-2 col-md-4">
-          <%= f.submit :class => "btn btn-primary" %>
+        <div class="col-md-offset-1 col-md-4">
+          <%= f.submit "Sign Up", :class => "btn btn-primary" %>
         </div>
       </div>
 

@@ -6,10 +6,15 @@
 <div class="page-header">
   <h1><%= @task.description %>
   <div class='pull-right'>
-    <%= link_to 'Edit', edit_task_path(@task), class:'btn btn-info' %>
+    <%= link_to 'Edit', edit_project_task_path, class:'btn btn-info' %>
   </div>
 </h1>
 </div>
+
+<ol class="breadcrumb">
+  <li><a href="/tasks">Tasks</a></li>
+  <li class="active"><%= @task.description %></li>
+</ol>
 
 <div>
   <h3>
@@ -27,11 +32,6 @@
   </h3>
 </div>
 <br/>
-
-<ol class="breadcrumb">
-  <li><a href="/tasks">Tasks</a></li>
-  <li class="active"><%= @task.description %></li>
-</ol>
 
 </div>
 </div>

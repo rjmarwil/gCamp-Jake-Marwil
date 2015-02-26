@@ -29,6 +29,20 @@
 </div>
 
 <div class="form-group row">
+  <%= f.label :password, :class => "control-label col-md-2" %>
+  <div class="form-controls col-md-4">
+    <%= f.text_field :password, :class => 'form-control', :id => 'password' %>
+  </div>
+</div>
+
+<div class="form-group row">
+  <%= f.label :password_confirmation, :class => "control-label col-md-2" %>
+  <div class="form-controls col-md-4">
+    <%= f.text_field :password_confirmation, :class => 'form-control', :id => 'password_confirmation' %>
+  </div>
+</div>
+
+<div class="form-group row">
   <div class="col-md-offset-2 col-md-4">
     <%= f.submit :class => "btn btn-primary" %>
     <a class='btn btn-default' href="/users">Cancel</a>

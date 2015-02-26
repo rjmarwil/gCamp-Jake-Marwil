@@ -3,7 +3,7 @@
     <div class="col-md-12">
 
 <div class="page-header">
-  <h1>Tasks
+  <h1>Tasks for <%= @project.name %>
   <div class='pull-right'>
     <%= link_to 'New Task', new_project_task_path, class:'btn btn-info' %>
   </div>
@@ -14,7 +14,6 @@
   <li><a href="/projects">Projects</a></li>
   <li><%= link_to @project.name, project_path(@project) %></li>
   <li>Tasks</li>
-
 </ol>
 
 <table class='table table-striped'>

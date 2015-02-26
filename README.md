@@ -13,3 +13,5 @@ bundle
 rake db:create db:migrate db:seed
 rails s
 ```
+
+[![Build Status](https://travis-ci.org/rjmarwil/gCamp-Jake-Marwil.svg?branch=master)](https://travis-ci.org/rjmarwil/gCamp-Jake-Marwil)

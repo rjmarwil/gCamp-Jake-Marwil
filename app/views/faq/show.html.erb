@@ -1,26 +1,23 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="page-header">
-        <h1>Frequently Asked Questions</h1>
-      </div>
-
-      <ul>
-        <% @questions.each do |display| %>
-        <li><u><%= link_to display.question, "##{display.slug}" %></u></li>
-        <% end %>
-      </ul>
-
-      <br/>
-
-      <% @questions.each do |display| %>
-      <% question = display.question %>
-      <% answer = display.answer %>
-      <h3><a id = "<%= display.slug %>"></a><%= question %></h3>
-      <p><%= answer %></p>
-      <u><%= link_to "top", "#top" %></u>
-      <% end %>
-
-    </div>
+<div class="col-md-6">
+  <div class="page-header">
+    <h1>Frequently Asked Questions</h1>
   </div>
-<br/>
+
+  <ul>
+    <% @questions.each do |display| %>
+    <li><u><%= link_to display.question, "##{display.slug}" %></u></li>
+    <% end %>
+  </ul>
+
+  <br/>
+
+  <% @questions.each do |display| %>
+  <% question = display.question %>
+  <% answer = display.answer %>
+  <h3><a id = "<%= display.slug %>"></a><%= question %></h3>
+  <p><%= answer %></p>
+  <u><%= link_to "top", "#top" %></u>
+  <% end %>
+
+  <br/>
+</div>

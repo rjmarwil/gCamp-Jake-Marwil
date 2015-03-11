@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+<div class="page-header">
+  <h1><%= @project.name %>: Manage Members
+  <div class='pull-right'>
+    <%= link_to 'New Membership', new_project_membership_path, class:'btn btn-info' %>
+  </div>
+  </h1>
+</div>
+
+<ol class="breadcrumb">
+  <li><a href="/projects">Projects</a></li>
+  <li><%= link_to @project.name, project_path(@project) %></li>
+  <li>Memberships</li>
+</ol>
+
+<%= render partial: "shared/errors", locals: {object: @membership} %>
+
+<div class="well form-inline">
+  <%= form_for [@project, @membership] do |f|  %>
+  <%= f.collection_select :user_id, User.all, :id, :full_name, {prompt: "Please select a user..."}, class: "form-control" %>
+  <%= f.collection_select :role, Membership.capital_roles, :last, :first, {include_blank: false}, class: "form-control" %>
+  <%= f.submit 'Add Member', class: 'btn btn-primary'%>
+  <% end %>
+</div>
+
+<% @project.memberships.each do |membership| %>
+
+<div class="form-inline">
+  <%= form_for [@project, membership] do |f|  %>
+    <p><%= link_to "#{membership.user.full_name}", user_path(membership.user) %>
+    <%= f.collection_select :role, Membership.capital_roles, :last, :first, {include_blank: false}, class: "form-control" %>
+    <%= f.submit 'Update', class: 'btn btn-primary' %>
+    <%= link_to '', project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %>
+    <% end %>
+  <% end %>
+</div>
+
+</div>
+</div>

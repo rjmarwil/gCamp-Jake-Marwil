@@ -17,3 +17,11 @@
 <p><%= link_to "#{@project.tasks.all.count} Tasks", project_tasks_path(@project) %></p>
 
 <p><%= link_to "#{@project.memberships.all.count} Memberships", project_memberships_path(@project) %></p>
+
+<div class="well">
+  <h4>Delete</h4>
+  <p>
+    Deleting this project will also delete <%= pluralize @project.memberships.count, "membership" %>, and <%= pluralize @project.tasks.count, "task" %> and associated comments.
+  </p>
+  <%= link_to 'Delete', project_path, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+</div>

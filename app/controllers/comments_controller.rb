@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       redirect_to :back, notice: "Comment was successfully posted!"
     else
       flash.now[:alert] = "There was a problem posting your comment."
-      render "tasks/show"
+      redirect_to :back
     end
   end
 

@@ -13,6 +13,27 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="/">gCamp</a>
       </div>
+
+      <% if params['controller'] == 'projects' || params['controller'] == 'tasks' || params['controller'] == 'memberships' || params['controller'] == 'users' %>
+        <div class="navbar-header">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">Projects<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <% current_user.projects.each do |project| %>
+                    <%= link_to project.name, project_path(project) %>
+                  <% end %>
+                </li>
+                <li class="divider"></li>
+                <li><a href="/projects/new">New Project</a></li>
+              </ul>
+            </li>
+            <a class="navbar-brand" href="/users">Users</a>
+          </ul>
+        </div>
+      <% end %>
+
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", user_path(current_user) %></li>
@@ -43,7 +64,7 @@
   <div class="container">
   <footer>
     <div class="row">
-      <div class= "col-md-6">
+      <div class= "text-center col-md-12">
         <!-- <a href="/about">About</a> -->
         <%= link_to "About", about_path %>
         |
@@ -60,23 +81,23 @@
         <% end %>
       </div>
 
-      <div class="col-md-6 text-right">
+      <!-- <div class="col-md-6 text-right">
         <a href="https://www.linkedin.com/in/robertmarwil/">
-          <%= image_tag('linked_in.jpg', class: 'img-footer') %>
+          <%# image_tag('linked_in.jpg', class: 'img-footer') %>
         </a>
         <a href="https://github.com/rjmarwil">
-          <%= image_tag('cat.png', class: 'img-footer') %>
+          <%# image_tag('cat.png', class: 'img-footer') %>
         </a>
         <a href="https://twitter.com/JakeMarwil">
-          <%= image_tag('twitter.png', class: 'img-footer') %>
+          <%# image_tag('twitter.png', class: 'img-footer') %>
         </a>
         <a href="https://students.gschool.it/students/224">
-          <%= image_tag('galvanize.png', class: 'img-footer') %>
+          <%# image_tag('galvanize.png', class: 'img-footer') %>
         </a>
-      </div>
+      </div> -->
     </div>
   </footer>
-</div> 
+</div>
 
 </body>
 </html>

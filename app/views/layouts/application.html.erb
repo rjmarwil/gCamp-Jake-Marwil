@@ -11,7 +11,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">gCamp</a>
+        <a class="navbar-brand" href="/projects">gCamp</a>
       </div>
 
       <% if params['controller'] == 'projects' || params['controller'] == 'tasks' || params['controller'] == 'memberships' || params['controller'] == 'users' %>
@@ -63,8 +63,21 @@
 
   <div class="container">
   <footer>
+    <% if params['controller'] == 'projects' || params['controller'] == 'tasks' || params['controller'] == 'memberships' || params['controller'] == 'users' %>
     <div class="row">
       <div class= "text-center col-md-12">
+        <%= link_to "Home", root_path %>
+        |
+        <%= link_to "About", about_path %>
+        |
+        <%= link_to "Terms", terms_path %>
+        |
+        <%= link_to "FAQ", faq_path %>
+      </div>
+    </div>
+    <% else %>
+    <div class="row">
+      <div class= "col-md-6">
         <!-- <a href="/about">About</a> -->
         <%= link_to "About", about_path %>
         |
@@ -81,21 +94,22 @@
         <% end %>
       </div>
 
-      <!-- <div class="col-md-6 text-right">
+      <div class="col-md-6 text-right">
         <a href="https://www.linkedin.com/in/robertmarwil/">
-          <%# image_tag('linked_in.jpg', class: 'img-footer') %>
+          <%= image_tag('linked_in.jpg', class: 'img-footer') %>
         </a>
         <a href="https://github.com/rjmarwil">
-          <%# image_tag('cat.png', class: 'img-footer') %>
+          <%= image_tag('cat.png', class: 'img-footer') %>
         </a>
         <a href="https://twitter.com/JakeMarwil">
-          <%# image_tag('twitter.png', class: 'img-footer') %>
+          <%= image_tag('twitter.png', class: 'img-footer') %>
         </a>
         <a href="https://students.gschool.it/students/224">
-          <%# image_tag('galvanize.png', class: 'img-footer') %>
+          <%= image_tag('galvanize.png', class: 'img-footer') %>
         </a>
-      </div> -->
+      </div>
     </div>
+    <% end %>
   </footer>
 </div>
 

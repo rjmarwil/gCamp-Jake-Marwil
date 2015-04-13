@@ -54,6 +54,12 @@ class ProjectsController < ApplicationController
       end
     end
 
+    def check_owner(project)
+      if current_user.project_owner?(project)
+        redirect_to project_path(@project), alert: 'You do not have access.'
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name)

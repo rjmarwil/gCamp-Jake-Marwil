@@ -23,9 +23,11 @@
         <td><%= link_to project.name, project %></td>
         <td><%= link_to project.tasks.all.count, project_tasks_path(project) %></td>
         <td>
+          <% if current_user.project_owner?(project) %>
           <div class='text-right'>
             <%= link_to 'Edit', edit_project_path(project), class:'btn btn-info' %>
           </div>
+          <% end %>
         </td>
       </tr>
     <% end %>

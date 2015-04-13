@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to projects_path
     else
       flash[:alert] = "Invalid Email and/or Password"
       render :new

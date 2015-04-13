@@ -51,6 +51,9 @@
     <% if flash[:notice] %>
     <div class="alert alert-success text-center"><%= flash[:notice] %></div>
     <% end %>
+    <% if flash[:alert] %>
+    <div class="alert alert-danger text-center"><%= flash[:alert] %></div>
+    <% end %>
   </div>
 
   <div class="container">

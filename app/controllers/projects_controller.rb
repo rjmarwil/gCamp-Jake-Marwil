@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :check_membership, only: [:show, :edit, :update, :destroy]
+  before_action :check_owner, only: [:edit, :update, :destroy]
 
   def index
     @projects = Project.all
@@ -54,8 +55,8 @@ class ProjectsController < ApplicationController
       end
     end
 
-    def check_owner(project)
-      if current_user.project_owner?(project)
+    def check_owner
+      unless current_user.project_owner?(@project)
         redirect_to project_path(@project), alert: 'You do not have access.'
       end
     end

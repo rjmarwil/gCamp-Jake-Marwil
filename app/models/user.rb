@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  def project_owner?(project)
+    project.memberships.find_by(role: Membership.roles[:owner], user_id: id)
+  end
+
 end

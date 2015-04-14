@@ -29,6 +29,7 @@
       <%= f.collection_select :role, Membership.capital_roles, :last, :first, {include_blank: false}, class: "form-control" %>
       <%= f.submit 'Update', class: 'btn btn-primary' %>
       <% if current_user.last_project_owner?(@project) && membership.user == current_user %>
+        You are the last owner
       <% else %>
         <%= link_to '', project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %>
       <% end %>

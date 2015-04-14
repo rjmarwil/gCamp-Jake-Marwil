@@ -2,9 +2,11 @@
 
 <div class="page-header">
   <h1><%= @user.full_name %>
+  <% if current_user.id == @user.id %>
   <div class='pull-right'>
     <%= link_to 'Edit', edit_user_path(@user), class:'btn btn-info' %>
   </div>
+  <% end %>
 </h1>
 </div>
 

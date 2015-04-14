@@ -47,15 +47,19 @@ class MembershipsController < ApplicationController
   private
 
   def check_membership
-    @project = Project.find(params[:project_id])
-    unless @project.users.include? current_user
-      redirect_to projects_path, notice: 'You do not have access to that project.'
+    unless current_user.admin?
+      @project = Project.find(params[:project_id])
+      unless @project.users.include? current_user || current_user.admin?
+        redirect_to projects_path, notice: 'You do not have access to that project.'
+      end
     end
   end
 
   def check_owner
-    unless current_user.project_owner?(@project)
-      redirect_to project_path(@project), alert: 'You do not have access.'
+    unless current_user.admin?
+      unless current_user.project_owner?(@project) || current_user.admin?
+        redirect_to project_path(@project), alert: 'You do not have access.'
+      end
     end
   end
 

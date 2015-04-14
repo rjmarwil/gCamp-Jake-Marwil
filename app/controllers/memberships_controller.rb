@@ -36,7 +36,7 @@ class MembershipsController < ApplicationController
   def destroy
     @project = Project.find(params[:project_id])
     @membership = Membership.find(params[:id])
-    if current_user.last_project_owner?(@project) && current_user == @membership.id
+    if current_user.last_project_owner?(@project) && current_user.id == @membership.id
        redirect_to project_memberships_path(@project), :alert => 'Projects must have at least one owner.'
     else
       @membership.destroy

@@ -28,7 +28,10 @@
       <%= link_to "#{membership.user.full_name}", user_path(membership.user) %>
       <%= f.collection_select :role, Membership.capital_roles, :last, :first, {include_blank: false}, class: "form-control" %>
       <%= f.submit 'Update', class: 'btn btn-primary' %>
-      <%= link_to '', project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %>
+      <% if current_user.last_project_owner?(@project) && membership.user == current_user %>
+      <% else %>
+        <%= link_to '', project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %>
+      <% end %>
     </p>
     <% end %>
   </div>

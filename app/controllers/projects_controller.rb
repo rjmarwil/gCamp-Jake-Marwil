@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
 
     def check_membership
       unless current_user.admin?
-        @project = Project.find(params[:project_id])
+        @project = Project.find(params[:id])
         unless @project.users.include? current_user
           redirect_to projects_path, notice: 'You do not have access to that project.'
         end

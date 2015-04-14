@@ -40,11 +40,12 @@ class UsersController < ApplicationController
 
 
   def destroy
-    @user.destroy
     if @user.id == current_user.id
       session[:user_id] = nil
+      @user.destroy
       redirect_to root_path, notice: "User was successfully deleted."
     else
+      @user.destroy
       redirect_to users_path, notice: 'User was successfully deleted.'
     end
   end

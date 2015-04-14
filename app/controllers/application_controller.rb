@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  class AccessDenied < StandardError; end
+
+    rescue_from AccessDenied, with: :record_not_found
+
+  private
+
+    def record_not_found
+      render file: '/public/404.html', status: 404
+    end
+
 end
 
 def current_user

@@ -2,7 +2,7 @@
 
 <div class="page-header">
   <h1><%= @project.name %>
-  <% if current_user.project_owner?(@project) %>
+  <% if current_user.project_owner?(@project) || current_user.admin? %>
   <div class='pull-right'>
     <%= link_to 'Edit', edit_project_path(@project), class:'btn btn-info' %>
   </div>
@@ -19,7 +19,7 @@
 
 <p><%= link_to "#{@project.memberships.all.count} Memberships", project_memberships_path(@project) %></p>
 
-<% if current_user.project_owner?(@project) %>
+<% if current_user.project_owner?(@project) || current_user.admin? %>
 <div class="well">
   <h4>Delete</h4>
   <p>

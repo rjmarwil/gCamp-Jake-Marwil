@@ -21,7 +21,10 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.full_name, user %></td>
-        <td><%= mail_to user.email %></td>
+        <td>
+          <% if current_user.id == user.id %>
+            <%= mail_to user.email %></td>
+          <% end %>
         <td>
           <% if current_user.id == user.id %>
           <div class='text-right'>

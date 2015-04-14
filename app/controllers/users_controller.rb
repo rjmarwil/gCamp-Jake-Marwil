@@ -14,6 +14,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if current_user != @user
+      raise AccessDenied
+    end
+    @submit_name = "Update User"
   end
 
   def create

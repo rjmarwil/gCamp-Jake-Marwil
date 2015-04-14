@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  after_filter "remember_url", only: [:new]
 
   def new
     @user = User.new
@@ -19,6 +20,14 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to '/'
+  end
+
+  def remember_url
+    if request.referer.present?
+      session[:remember_url] = URI(request.referer).path
+    else
+      session[:remember_url] = new_project_path
+    end
   end
 
 end

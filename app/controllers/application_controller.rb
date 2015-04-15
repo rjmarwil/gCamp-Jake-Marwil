@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_action :authenticate
-
   class AccessDenied < StandardError; end
 
     rescue_from AccessDenied, with: :record_not_found

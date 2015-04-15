@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :check_membership, only: [:show, :edit, :update, :destroy]
   before_action :check_owner, only: [:edit, :update, :destroy]

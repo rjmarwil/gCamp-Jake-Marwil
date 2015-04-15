@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+  before_action :authenticate
   before_action :check_membership
   before_action :check_owner, only: [:edit, :update]
 

@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  before_action :authenticate
+
   class AccessDenied < StandardError; end
 
     rescue_from AccessDenied, with: :record_not_found
@@ -21,6 +23,9 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate
+      unless current_user
+        session[:return_path] = request.env['PATH_INFO']
+      end
       redirect_to signin_path, :alert => 'You must be logged in to visit that page.' unless current_user
     end
 

@@ -3,11 +3,22 @@ require 'rails_helper'
 
   describe 'User can CRUD users' do
 
-    # Users can create a user.
-    scenario 'User can create a user' do
+    before :each do
+
+      User.create(first_name: "Jake", last_name: "Marwil", email: "rjm02006@gmail.com", password: "password", admin: true)
+      visit "/"
+      click_on 'Sign In'
+      fill_in "Email", with: 'rjm02006@gmail.com'
+      fill_in "Password", with: 'password'
+      click_on "Sign In!"
 
       # visit users index
       visit '/users'
+
+    end
+
+    # Users can create a user.
+    scenario 'User can create a user' do
 
       # click on link to go to new user form
       click_on "New User"
@@ -35,9 +46,6 @@ require 'rails_helper'
     #Users can edit a user
     scenario 'User can edit a user' do
 
-      @user = User.create(:first_name => "A", :last_name => "A", :email => "a@a.com", :password => "a", :password_confirmation => "a")
-      visit "/users"
-
       #click on Edit
       click_on "Edit"
 
@@ -59,24 +67,18 @@ require 'rails_helper'
   # Users can show a user.
   scenario 'User can show a user' do
 
-    @user = User.create(:first_name => "A", :last_name => "A", :email => "a@a.com", :password => "a", :password_confirmation => "a")
-    visit "/users"
-
     # click on user name link to go to user show page
-    click_on "A A"
+    first(:link, "Jake Marwil").click
 
     #expect page to show description and due date of Example user
-    expect(page).to have_content("A A")
-    expect(page).to have_content("a@a.com")
+    expect(page).to have_content("Jake Marwil")
+    expect(page).to have_content("rjm02006@gmail.com")
 
   end
 
 
   # Users can delete a user.
   scenario 'User can delete a user' do
-
-    @user = User.create(:first_name => "A", :last_name => "A", :email => "a@a.com", :password => "a", :password_confirmation => "a")
-    visit "/users"
 
     #click on Edit
     click_on "Edit"
@@ -85,7 +87,7 @@ require 'rails_helper'
     click_on "Delete"
 
     #expect to see flash notice of successful deletion of user
-    expect(page).to have_content("User was successfully destroyed.")
+    expect(page).to have_content("User was successfully deleted.")
 
   end
 

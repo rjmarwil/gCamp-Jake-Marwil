@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  after_filter "remember_url", only: [:new]
 
   def new
     @user = User.new
@@ -10,7 +9,12 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to projects_path
+      flash[:notice] = "You have successfully signed in"
+      if session[:return_path]
+        redirect_to session[:return_path]
+      else
+        redirect_to projects_path
+      end
     else
       flash[:alert] = "Invalid Email and/or Password"
       render :new
@@ -20,14 +24,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to '/'
-  end
-
-  def remember_url
-    if request.referer.present?
-      session[:remember_url] = URI(request.referer).path
-    else
-      session[:remember_url] = new_project_path
-    end
   end
 
 end

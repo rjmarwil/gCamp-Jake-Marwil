@@ -3,13 +3,26 @@ require 'rails_helper'
 
   describe 'User can CRUD projects' do
 
-    # Users can create a project.
-    scenario 'User can create a project' do
-      # visit projects index
+    before :each do
+
+      a = User.create(first_name: "Jake", last_name: "Marwil", email: "rjm02006@gmail.com", password: "password", admin: true)
+      visit "/"
+      click_on 'Sign In'
+      fill_in "Email", with: 'rjm02006@gmail.com'
+      fill_in "Password", with: 'password'
+      click_on "Sign In!"
+
+      b = Project.create(name: "Example project")
+      Membership.create(user_id: a.id, project_id: b.id, role: 1)
       visit '/projects'
 
+    end
+
+    # Users can create a project.
+    scenario 'User can create a project' do
+
       # click on link to go to new project form
-      click_on "New Project"
+      first(:link, "New Project").click
 
       #filling out form for project
       fill_in 'project[name]', :with => "Example project"
@@ -29,9 +42,6 @@ require 'rails_helper'
 
     #Users can edit a project
     scenario 'User can edit a project' do
-
-      @project = Project.create(:name => "Example project")
-      visit "/projects"
 
       #click on Edit
       click_on "Edit"
@@ -54,11 +64,8 @@ require 'rails_helper'
   # Users can show a project.
   scenario 'User can show a project' do
 
-    @project = Project.create(:name => "Example project")
-    visit "/projects"
-
     # click on project name link to go to project show page
-    click_on "Example project"
+    first(:link, "Example project").click
 
     #expect page to show description and due date of Example project
     expect(page).to have_content("Example project")
@@ -69,11 +76,8 @@ require 'rails_helper'
   # Users can delete a project.
   scenario 'User can delete a project' do
 
-    @project = Project.create(:name => "Example project")
-    visit "/projects"
-
     # click on project name link to go to project show page
-    click_on "Example project"
+    first(:link, "Example project").click
 
     #click on Delete
     click_on "Delete"

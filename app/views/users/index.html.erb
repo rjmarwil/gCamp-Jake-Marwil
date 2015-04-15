@@ -22,7 +22,7 @@
       <tr>
         <td><%= link_to user.full_name, user %></td>
         <td>
-          <% if current_user.id == user.id || current_user.admin? %>
+          <% if current_user.id == user.id || current_user.admin? || @collaborators.include?(user) %>
             <%= mail_to user.email %></td>
           <% end %>
         <td>

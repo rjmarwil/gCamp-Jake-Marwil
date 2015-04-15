@@ -15,7 +15,7 @@
   <dd><%= @user.first_name %></dd></p>
   <p><dt>Last Name: </dt>
   <dd><%= @user.last_name %></dd></p>
-  <% if current_user.id == @user.id || current_user.admin? %>
+  <% if current_user.id == @user.id || current_user.admin? || @collaborators.include?(@user) %>
   <p><dt>Email: </dt>
   <dd><%= mail_to @user.email %></dd></p>
   <% end %>

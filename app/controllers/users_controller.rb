@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate, except: [:create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_collaborators, only: [:index, :show]
 
   def index
     @users = User.all
@@ -65,5 +66,9 @@ class UsersController < ApplicationController
       else
         params.require(:user).permit(:first_name, :last_name, :email, :password)
       end
+    end
+
+    def set_collaborators
+      @collaborators = current_user.projects.flat_map{|project| project.users}
     end
 end

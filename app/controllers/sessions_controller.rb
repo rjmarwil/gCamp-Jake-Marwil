@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "You have successfully signed in"
       if session[:return_path]
         redirect_to session[:return_path]
+        session[:return_path] = nil
       else
         redirect_to projects_path
       end
@@ -23,7 +24,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/'
+    redirect_to root_path, notice: "We're sorry to see you go!"
   end
 
 end

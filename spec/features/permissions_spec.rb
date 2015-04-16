@@ -115,4 +115,36 @@ describe 'Certain action and user memberships allow different permissions' do
     expect(page).to have_content  "Project was successfully destroyed."
   end
 
+  it 'normal users can see their own emails' do
+    click_on 'Users'
+    expect(page).to have_content 'rjm02006@gmail.com'
+  end
+
+  it 'normal users can see emails of users who are assigned to their projects' do
+    @user2 = User.create(first_name: "Fake", last_name: "User", email: "a@a.com", password: "password", admin: false)
+    Membership.create(user_id: @user2.id, project_id: @project.id, role: 0)
+    click_on 'Users'
+    expect(page).to have_content 'a@a.com'
+  end
+
+  it 'normal users cannot see emails of users who are not assigned to their projects' do
+    User.create(first_name: "Fake", last_name: "User", email: "a@a.com", password: "password", admin: false)
+    @project2 = Project.create(name: "Example Project 2")
+    click_on 'Users'
+    expect(page).not_to have_content 'a@a.com'
+  end
+
+  it 'admin users can see all user emails' do
+    User.create(first_name: "Fake", last_name: "User", email: "a@a.com", password: "password", admin: false)
+    click_on 'Sign Out'
+    click_on 'Sign In'
+    fill_in "Email", with: 'admin@example.com'
+    fill_in "Password", with: 'password'
+    click_on 'Sign In!'
+    click_on 'Users'
+    expect(page).to have_content 'a@a.com'
+    expect(page).to have_content 'rjm02006@gmail.com'
+    expect(page).to have_content 'admin@example.com'
+  end
+
 end

@@ -53,4 +53,22 @@ describe 'Certain action and user memberships allow different permissions' do
     expect(page).to have_content 'You are the last owner'
   end
 
+  it 'a user can view projects they created' do
+    visit "/projects/new"
+    fill_in "name", with:  "Example"
+    click_on "Create Project"
+    first(:link, "Example").click
+    expect(page).to have_content 'Example'
+    expect(page).to have_content 'Edit'
+    expect(page).to have_content 'Delete'
+  end
+
+  it 'a user can view projects they are a member of' do
+
+  end
+
+  it "a user cannot view projects they didn't create or aren't members of" do
+
+  end
+
 end

@@ -147,4 +147,14 @@ describe 'Certain action and user memberships allow different permissions' do
     expect(page).to have_content 'admin@example.com'
   end
 
+  it "user cannot see other user emails on their show pages" do
+    visit '/users'
+    click_on "admin example"
+    expect(page).to_not have_content 'admin@example.com'
+  end
+
+  it 'when admin creates user, they can make them admin with a checkbox' do
+
+  end
+
 end

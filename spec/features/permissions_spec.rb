@@ -42,4 +42,15 @@ describe 'Certain action and user memberships allow different permissions' do
     expect(page).to have_content "Description"
   end
 
+  it 'sets creator of project as owner' do
+    visit "/projects/new"
+    fill_in "name", with:  "Example"
+    click_on "Create Project"
+    first(:link, "Example").click
+    click_on "Memberships"
+    expect(page).to have_content 'Jake Marwil'
+    expect(page).to have_content 'Owner'
+    expect(page).to have_content 'You are the last owner'
+  end
+
 end

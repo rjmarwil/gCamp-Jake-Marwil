@@ -101,4 +101,18 @@ describe 'Certain action and user memberships allow different permissions' do
     expect(page).to have_content 'You do not have access to that project'
   end
 
+  it 'project owners can see edit and delete buttons' do
+    visit '/projects/new'
+    fill_in 'name', with: 'Example Project 2'
+    click_button 'Create Project'
+    first(:link, "Example Project 2").click
+    expect(page).to have_content "Edit"
+    click_on 'Edit'
+    fill_in "name", with: "Example Project 2 edit"
+    click_on "Update Project"
+    expect(page).to have_content "Project was successfully updated."
+    click_on "Delete"
+    expect(page).to have_content  "Project was successfully destroyed."
+  end
+
 end

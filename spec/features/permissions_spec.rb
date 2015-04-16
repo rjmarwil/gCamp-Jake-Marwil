@@ -91,6 +91,10 @@ describe 'Certain action and user memberships allow different permissions' do
     @project2 = Project.create(name: "Example Project 2")
     visit "/projects"
     expect(page).not_to have_content 'Example Project 2'
+    visit "/projects/#{@project2.id}"
+    expect(page).to have_content 'You do not have access to that project'
   end
+
+  it
 
 end

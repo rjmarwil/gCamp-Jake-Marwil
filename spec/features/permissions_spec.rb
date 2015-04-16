@@ -78,9 +78,7 @@ describe 'Certain action and user memberships allow different permissions' do
   end
 
   it 'a user cannot view edit/delete actions for projects they are only a member of' do
-    # create a second project
     @project2 = Project.create(name: "Example Project 2")
-    # assign @user to second project only as a member (role: 0)
     Membership.create(user_id: @user.id, project_id: @project2.id, role: 0)
     visit "/projects"
     expect(page).to have_content 'Example Project 2'
@@ -90,7 +88,9 @@ describe 'Certain action and user memberships allow different permissions' do
   end
 
   it "a user cannot view projects they didn't create and aren't members of" do
-
+    @project2 = Project.create(name: "Example Project 2")
+    visit "/projects"
+    expect(page).not_to have_content 'Example Project 2'
   end
 
 end

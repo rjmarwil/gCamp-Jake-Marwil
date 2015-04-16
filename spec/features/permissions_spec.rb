@@ -33,4 +33,13 @@ describe 'Certain action and user memberships allow different permissions' do
     expect(page).to have_content "Cancel"
   end
 
+  it 'redirects to tasks index after project creation' do
+    visit "/projects/new"
+    fill_in "name", with:  "Example"
+    click_on "Create Project"
+    expect(page).to have_content "Project was successfully created"
+    expect(page).to have_content "Tasks for Example"
+    expect(page).to have_content "Description"
+  end
+
 end

@@ -95,6 +95,10 @@ describe 'Certain action and user memberships allow different permissions' do
     expect(page).to have_content 'You do not have access to that project'
   end
 
-  it
+  it "a user cannot see memberships for projects they aren't assigned to" do
+    @project2 = Project.create(name: "Example Project 2")
+    visit "/projects/#{@project2.id}/memberships"
+    expect(page).to have_content 'You do not have access to that project'
+  end
 
 end

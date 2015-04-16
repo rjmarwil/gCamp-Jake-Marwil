@@ -164,4 +164,12 @@ describe 'Certain action and user memberships allow different permissions' do
     expect(page).to have_content 'Admin'
   end
 
+  it 'normal users cannot see Admin checkbox on user edit page' do
+    click_on 'Users'
+    click_on 'Edit'
+    expect(page).not_to have_content 'Admin'
+  end
+
+  
+
 end

@@ -154,7 +154,14 @@ describe 'Certain action and user memberships allow different permissions' do
   end
 
   it 'when admin creates user, they can make them admin with a checkbox' do
-
+    click_on 'Sign Out'
+    click_on 'Sign In'
+    fill_in "Email", with: 'admin@example.com'
+    fill_in "Password", with: 'password'
+    click_on 'Sign In!'
+    click_on 'Users'
+    click_on 'New User'
+    expect(page).to have_content 'Admin'
   end
 
 end
